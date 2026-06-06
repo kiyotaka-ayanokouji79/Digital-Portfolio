@@ -3,6 +3,17 @@ body {
     padding-top: 30px !important;
 }
 
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(121, 255, 244, 0.15);
+        border-color: rgba(121, 255, 244, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 35px rgba(255, 255, 255, 0.8);
+        border-color: rgba(180, 180, 180, 0.6);
+    }
+}
+
 .top-header {
     position: relative;
     width: 90%;
@@ -58,10 +69,10 @@ body {
 
 .btn-back:hover {
     color: #ffffff;
-    border-color: #ffffff;
+    border-color: rgba(121, 255, 244, 0.8);
     background-color: rgba(255, 255, 255, 0.1);
     transform: translateX(-3px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(121, 255, 244, 0.5);
 }
 
 .content-container {
@@ -81,12 +92,33 @@ body {
     padding: 40px;
     text-align: left;
     backdrop-filter: blur(8px); 
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.08); 
+    max-height: 800px;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .tab-content.active {
     display: block;
-    animation: fadeInTab 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: fadeInTab 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards, glowPulse 3s ease-in-out infinite alternate;
+}
+
+.tab-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tab-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.tab-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.tab-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(121, 255, 244, 0.5);
 }
 
 @keyframes fadeInTab {
@@ -102,11 +134,17 @@ body {
 }
 
 .meta-info {
-    color: #8b949e;
+    color: #4dcff3;
     font-size: 1.05rem;
     margin-bottom: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 15px;
+}  
+
+.report-body {
+    color: #e1e4e8;
+    line-height: 1.8;
+    font-size: 1.1rem;
 }
 
 .report-body p {
@@ -136,38 +174,47 @@ body {
 .btn-toggle-pdf:hover {
     background-color: #ffffff;
     color: #0d1117;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(121, 255, 244, 0.6);
     transform: translateY(-2px);
 }
 
 .bottom-dock {
     position: fixed;
-    bottom: 30px; 
-    left: 50%;
-    transform: translateX(-50%); 
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
     z-index: 10;
     display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
+    flex-direction: column; 
+    align-items: stretch; /* Ép tất cả các khối con phải kéo giãn bằng nhau */
+    gap: 12px;
+    padding: 20px 16px; /* Tăng padding nhẹ để tạo khoảng thở */
     background-color: rgba(13, 17, 23, 0.75); 
     border: 1px solid rgba(255, 255, 255, 0.2); 
-    border-radius: 40px; 
+    border-radius: 24px; 
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.05);
+    animation: glowPulse 3s ease-in-out infinite alternate;
+    
+    width: 240px; /* Tăng chiều rộng cố định để thanh điều hướng rộng rãi hơn */
+    box-sizing: border-box; /* Đảm bảo padding không làm nở thêm khung */
 }
 
 .dock-item {
     background: none;
     border: none;
     color: #8b949e;
-    padding: 10px 18px;
+    padding: 12px 18px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     border-radius: 20px;
     text-decoration: none;
     transition: all 0.3s ease;
+    
+    display: block; /* Chuyển sang dạng khối */
+    width: 100%; /* Ép chiếm 100% chiều ngang của khung chứa */
+    text-align: center; /* Căn chữ ra chính giữa nút */
+    box-sizing: border-box;
 }
 
 .home-link {
@@ -183,51 +230,56 @@ body {
 .dock-item.active {
     background-color: #ffffff;
     color: #0d1117;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(121, 255, 244, 0.6);
 }
 
 .divider {
-    width: 1px;
-    height: 20px;
+    width: 100%;
+    height: 1px; /* Đổi thành vạch ngang */
     background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 4px;
+    margin: 4px 0;
 }
 
 .dock-dropdown-container {
     position: relative;
-    display: inline-block;
+    display: block; /* Chuyển từ inline-block sang block để chiếm hết hàng dọc */
+    width: 100%;
 }
 
 .dock-sub-menu {
     position: absolute;
-    bottom: 52px; 
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    top: 50%;
+    left: 100%; 
+    transform: translateX(12px) translateY(-50%);
     display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 6px 10px;
+    flex-direction: column; 
+    align-items: stretch; /* Ép các nút bài tập con giãn đều bằng nhau */
+    gap: 6px;
+    padding: 10px 8px;
     background-color: rgba(13, 17, 23, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
+    border-radius: 16px;
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.05);
     opacity: 0;
     pointer-events: none; 
     transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 99;
+    animation: glowPulse 3s ease-in-out infinite alternate;
+    
+    width: 110px; /* Định cấu hình nới rộng chiều ngang thanh phụ */
+    box-sizing: border-box;
 }
 
+/* Vùng đệm để giữ hover khi di chuột sang bên phải */
 .dock-sub-menu::before {
     content: "";
     position: absolute;
-    bottom: -25px; 
-    left: -20px;
-    right: -20px;
-    height: 30px; 
+    top: -20px;
+    bottom: -20px;
+    left: -20px; /* Phủ lề bên trái để chuột di chuyển mượt mà không mất hover */
+    width: 30px; 
     background: transparent; 
 }
-
 .dock-dropdown-container:hover .dock-sub-menu {
     opacity: 1;
     pointer-events: auto !important; 
@@ -237,14 +289,19 @@ body {
     background: none;
     border: none;
     color: #8b949e;
-    padding: 6px 14px;
+    padding: 8px 14px; /* Tăng nhẹ padding cho nút bấm rộng rãi hơn */
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
-    border-radius: 14px;
+    border-radius: 12px;
     transition: all 0.2s ease;
     white-space: nowrap;
     pointer-events: auto !important;
+    
+    display: block; /* Chuyển thành dạng khối */
+    width: 100%; /* Phủ kín 100% chiều rộng mới của thanh phụ */
+    text-align: center; /* Căn chữ Bài x ra chính giữa nút */
+    box-sizing: border-box;
 }
 
 .sub-item:hover {
@@ -255,7 +312,7 @@ body {
 .sub-item.sub-active {
     background-color: #ffffff;
     color: #0d1117;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 12px rgba(121, 255, 244, 0.6);
 }
 
 .assignment-popup-overlay {
@@ -287,7 +344,7 @@ body {
     max-width: 550px;
     position: relative;
     text-align: left;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 255, 255, 0.12);
+    animation: glowPulse 3s ease-in-out infinite alternate;
 }
 
 .assignment-popup-card h3 {
@@ -334,11 +391,17 @@ body {
     font-size: 0.85rem;
 }
 
+.popup-links-grid button .popup-icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
 .popup-links-grid button:hover {
     background-color: #ffffff;
     color: #0d1117;
-    border-color: #ffffff;
+    border-color: rgba(121, 255, 244, 0.8);
     transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(121, 255, 244, 0.5);
 }
 
 .popup-links-grid button:hover span {
@@ -394,7 +457,7 @@ body {
     overflow: hidden;
     background-color: #000000;
     position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 255, 255, 0.15);
+    animation: glowPulse 3s ease-in-out infinite alternate;
 }
 
 .modal-toolbar {
@@ -456,4 +519,28 @@ body {
     background-color: #ffffff;
     color: #000000;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+.continuing-journey {
+    text-align: l;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(121, 255, 244, 0.7);
+    margin-top: 30px;
+    letter-spacing: 0.5px;
+}
+.footer-credit {
+    position: fixed;
+    bottom: 12px;
+    left: 45px; /* Căn chỉnh lề trái nhích vào một chút để thẳng hàng một cách cân đối với thanh Dock dọc */
+    z-index: 5;
+    font-size: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(255, 255, 255); /* Để màu xám mờ tối giản để không làm lệch sự tập trung khỏi bảng nội dung chính */
+    letter-spacing: 0.5px;
+    pointer-events: none; /* Tránh cản trở các thao tác click chuột ở góc màn hình */
+    transition: color 0.3s ease;
+}
+
+.footer-credit:hover {
+    color: rgba(121, 255, 244, 0.8); /* Khi di chuột qua sẽ sáng nhẹ lên màu xanh ngọc neon đồng bộ với hệ thống */
 }

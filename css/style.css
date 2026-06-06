@@ -145,3 +145,19 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
+.footer-credit {
+    position: fixed;
+    bottom: 12px;
+    left: 45px; /* Căn chỉnh lề trái nhích vào một chút để thẳng hàng một cách cân đối với thanh Dock dọc */
+    z-index: 5;
+    font-size: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(255, 255, 255); /* Để màu xám mờ tối giản để không làm lệch sự tập trung khỏi bảng nội dung chính */
+    letter-spacing: 0.5px;
+    pointer-events: none; /* Tránh cản trở các thao tác click chuột ở góc màn hình */
+    transition: color 0.3s ease;
+}
+
+.footer-credit:hover {
+    color: rgba(121, 255, 244, 0.8); /* Khi di chuột qua sẽ sáng nhẹ lên màu xanh ngọc neon đồng bộ với hệ thống */
+}
