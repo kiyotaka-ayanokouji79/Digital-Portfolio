@@ -165,6 +165,9 @@ h1 {
 /* ==========================================================================
    RESPONSIVE MOBILE CHO TRANG CHỦ: FIX TRIỆT ĐỂ LỖI ĐÈ CHỮ & CUỘN LẮC NỀN
    ========================================================================== */
+/* ==========================================================================
+   MOBILE INDEX FIX: ĐẨY BADGE VÀ NỘI DUNG XUỐNG DƯỚI
+   ========================================================================== */
 @media (max-width: 768px) {
     /* Khóa cứng ảnh nền trang chủ giúp hiệu ứng cuộn trang mượt mà */
     html, body {
@@ -198,21 +201,30 @@ h1 {
         display: inline-block !important;
         margin-bottom: 15px !important; /* Tạo khoảng cách an toàn đẩy tiêu đề xuống dưới */
         margin-top: 20px !important;
+        order: 1; /* Ưu tiên nằm trên cùng trong cột nội dung */
     }
 
-    /* Hạ kích thước chữ tiêu đề trang chủ để không chiếm hết khung hình dọc di động */
+    /* Tiêu đề "Xin chào..." */
     h1, .main-title, h1.header-main-title {
         position: relative !important;
         font-size: 1.8rem !important; /* Thu nhỏ vừa vặn không lo kích vỡ khung */
         line-height: 1.4 !important;
         margin-top: 10px !important;
         margin-bottom: 25px !important; /* Đẩy khối nội dung mô tả phía dưới xa ra */
+        order: 2;
     }
 
     .description-text, p {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
         margin-bottom: 35px !important;
+        order: 3;
+    }
+
+    /* Nút bấm */
+    .btn-showcase {
+        order: 4;
+        margin-top: 10px !important;
     }
 
     /* Định dạng lại dòng credit chân trang nằm ngay ngắn tự nhiên dưới đáy */
@@ -227,5 +239,6 @@ h1 {
         width: 100% !important;
         font-size: 0.75rem !important;
         color: rgba(255, 255, 255, 0.4) !important;
+        order: 5;
     }
 }

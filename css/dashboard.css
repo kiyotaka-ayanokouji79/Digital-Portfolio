@@ -1,7 +1,7 @@
 body {
     justify-content: flex-start !important; 
     padding-top: 30px !important;
-    /* FIX LỖI ẢNH BỊ CUỐN: Khóa cứng ảnh nền trên PC và mọi thiết bị di động */
+    /* KHÓA CỨNG ẢNH NỀN: Giải quyết dứt điểm lỗi ảnh bị cuốn giật theo chữ khi lướt web */
     background-attachment: fixed !important; 
     background-position: center !important;
     background-size: cover !important;
@@ -184,6 +184,7 @@ body {
     transform: translateY(-2px);
 }
 
+/* THANH ĐIỀU HƯỚNG GỐC TRÊN PC (DỌC TRÁI) */
 .bottom-dock {
     position: fixed;
     top: 50%;
@@ -661,7 +662,7 @@ body {
         box-shadow: 0 0 15px rgba(121, 255, 244, 0.4) !important;
     }
 
-    /* 4. TRIỆT TIÊU HOÀN TOÀN MENU PHỤ HÀNG NGANG CŨ */
+    /* 4. TRIỆT TIÊU HOÀN TOÀN MENU PHỤ HÀNG NGANG CŨ TRÊN MOBILE */
     .dock-sub-menu {
         display: none !important; 
         opacity: 0 !important;
