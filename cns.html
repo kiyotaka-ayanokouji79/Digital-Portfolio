@@ -91,18 +91,6 @@
             </div>
         </div>
 
-        <div id="bai7" class="tab-content">
-            <div class="badge">BÀI TẬP 7</div>
-            <h2>📄 Nghiên cứu và phân tích học thuật số</h2>
-            <p class="meta-info">Phân tích tài liệu với trợ lý nghiên cứu AI</p>
-            <div class="report-body">
-                <p>Tối ưu hóa năng lực nghiên cứu khoa học bằng phương pháp tích hợp các mô hình ngôn ngữ lớn chuyên sâu đóng vai trò trợ lý học thuật cá nhân.</p>
-                <p>Thực hành khai thác các hệ thống AI tiên tiến phục vụ bóc tách luận điểm khoa học trong các tài liệu chuyên ngành đa trang, trích xuất các công thức toán học cốt lõi và tóm tắt phương pháp luận nghiên cứu.</p>
-                <p>Phương pháp này giúp tăng tốc hiệu quả xử lý khối lượng kiến thức khổng lồ, hỗ trợ phân tích cấu trúc lập luận phản biện của văn bản gốc để xây dựng kho tàng cơ sở dữ liệu số cá nhân một cách nhanh chóng, chính xác.</p>
-                <button class="btn-toggle-pdf" onclick="openPdfModal('modal-viewer-7')">📄 Xem bài tập</button>
-            </div>
-        </div>
-
         <div id="tongket" class="tab-content">
             <div class="badge">TỔNG KẾT</div>
             <h2>📝 Cảm nhận của mình về hành trình môn học</h2>
@@ -131,7 +119,6 @@
                 <button onclick="selectAssignmentFromPopup('bai4', 4)"><span>04</span> <span class="popup-icon">🤝</span> Giao tiếp & Hợp tác môi trường số</button>
                 <button onclick="selectAssignmentFromPopup('bai5', 5)"><span>05</span> <span class="popup-icon">🎨</span> Sáng tạo nội dung số</button>
                 <button onclick="selectAssignmentFromPopup('bai6', 6)"><span>06</span> <span class="popup-icon">🛡️</span> An toàn & Liêm chính học thuật</button>
-                <button onclick="selectAssignmentFromPopup('bai7', 7)"><span>07</span> <span class="popup-icon">📄</span> Nghiên cứu & Phân tích học thuật</button>
             </div>
         </div>
     </div>
@@ -208,18 +195,6 @@
         </div>
     </div>
 
-    <div id="modal-viewer-7" class="pdf-fullscreen-modal">
-        <button class="btn-close-modal" onclick="closePdfModal('modal-viewer-7')">✕ Đóng tài liệu</button>
-        <div class="modal-content-wrapper">
-            <div class="modal-toolbar">
-                <span class="toolbar-title">📄 ĐỌC TOÀN MÀN HÌNH</span>
-            </div>
-            <div class="iframe-container">
-                <iframe src="assets/bai7.pdf#zoom=100" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
-
     <nav class="bottom-dock">
         <a href="index.html" class="dock-item home-link">◀ Trang chủ & Giới thiệu</a>
         <div class="divider"></div>
@@ -234,7 +209,6 @@
                 <button class="sub-item" id="sub-btn-4" onclick="switchTab('bai4', this)">Bài 4</button>
                 <button class="sub-item" id="sub-btn-5" onclick="switchTab('bai5', this)">Bài 5</button>
                 <button class="sub-item" id="sub-btn-6" onclick="switchTab('bai6', this)">Bài 6</button>
-                <button class="sub-item" id="sub-btn-7" onclick="switchTab('bai7', this)">Bài 7</button>
             </div>
         </div>
         <button class="dock-item" id="dock-btn-tongket" onclick="switchTab('tongket', this)">Tổng kết</button>
@@ -251,7 +225,6 @@
             'bai4': 'sub-btn-4',
             'bai5': 'sub-btn-5',
             'bai6': 'sub-btn-6',
-            'bai7': 'sub-btn-7',
             'tongket': 'dock-btn-tongket'
         };
 
