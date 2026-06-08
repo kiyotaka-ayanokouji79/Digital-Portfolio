@@ -459,14 +459,14 @@ body::before {
 .modal-content-wrapper iframe { width: 100% !important; height: 100% !important; border: none !important; display: block !important; background-color: #ffffff !important; }
 .btn-close-modal { align-self: center !important; margin-left: auto !important; margin-right: 5% !important; margin-bottom: 15px !important; background-color: #000000 !important; color: #ffffff !important; border-width: 1px !important; border-style: solid !important; border-color: #ffffff !important; padding-top: 8px !important; padding-bottom: 8px !important; padding-left: 24px !important; padding-right: 24px !important; font-size: 0.9rem !important; font-weight: 600 !important; border-radius: 20px !important; cursor: pointer !important; }
 .btn-close-modal:hover { background-color: #ffffff !important; color: #000000 !important; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important; }
-.footer-credit { position: fixed !important; bottom: 12px !important; left: 45px !important; z-index: 5 !important; font-size: 2rem !important; font-family: 'Ubuntu', sans-serif !important; color: rgb(255, 255, 255) !important; letter-spacing: 0.5px !important; pointer-events: none !important; transition: color 0.3s ease !important; }
+.footer-credit { position: relativeimportant; bottom: 12px !important; left: 45px !important; z-index: 5 !important; font-size: 2rem !important; font-family: 'Ubuntu', sans-serif !important; color: rgb(255, 255, 255) !important; letter-spacing: 0.5px !important; pointer-events: none !important; transition: color 0.3s ease !important; }
 .footer-credit:hover { color: rgba(121, 255, 244, 0.8) !important; }
 
 
 /* ==========================================================================
    CẤU HÌNH RESPONSIVE CHO ĐIỆN THOẠI DI ĐỘNG (CHIỀU RỘNG MÀN HÌNH < 768PX)
    ========================================================================== */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     html, body {
         overflow-y: auto !important;
         height: auto !important;
@@ -482,19 +482,46 @@ body::before {
         top: 0 !important; left: 0 !important; right: 0 !important;
         margin-left: 0 !important;
         padding-top: 140px !important;
-        padding-bottom: 120px !important;
+        padding-bottom: 140px !important;
         width: 100% !important;
     }
 
     .top-header {
-        position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; transform: none !important;
-        padding-top: 8px !important; padding-bottom: 8px !important; padding-left: 10px !important; padding-right: 10px !important;
-        background-color: rgba(13, 17, 23, 0.98) !important; border-bottom-width: 1px !important; border-bottom-style: solid !important; border-bottom-color: rgba(121, 255, 244, 0.15) !important;
+        position: fixed !important; 
+        top: 0 !important; 
+        left: 0 !important; 
+        width: 100% !important; 
+        transform: none !important;
+        margin-left: 0 !important;
+        padding-top: 8px !important; 
+        padding-bottom: 8px !important; 
+        padding-left: 10px !important; 
+        padding-right: 10px !important;
+        background-color: rgba(13, 17, 23, 0.98) !important; 
+        border-bottom-width: 1px !important; 
+        border-bottom-style: solid !important; 
+        border-bottom-color: rgba(121, 255, 244, 0.15) !important;
+        justify-content: center !important;
     }
 
-    .header-nav-top { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; }
-    .btn-back { position: relative !important; font-size: 0.75rem !important; padding-top: 5px !important; padding-bottom: 5px !important; padding-left: 10px !important; padding-right: 10px !important; }
-    .header-main-title { font-size: 1.1rem !important; letter-spacing: 0.5px !important; }
+    .header-nav-top { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; width: 100% !important; gap: 15px !important;}
+    .btn-back { position: relative !important; font-size: 0.75rem !important; padding-top: 5px !important; padding-bottom: 5px !important; padding-left: 10px !important; padding-right: 10px !important; display: inline-flex !important; }
+    .header-main-title { font-size: 1.1rem !important; letter-spacing: 0.5px !important; gap: 6px; }
+    .header-logo {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .header-main-title {
+        font-size: 1.1rem !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+    }
+    .tab-content {
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
 
     .mobile-nav-toggle {
         display: flex !important; position: fixed !important; bottom: 25px !important; left: 25px !important; width: 55px !important; height: 55px !important; background-color: #0d1117 !important; border-width: 2px !important; border-style: solid !important; border-color: rgba(121, 255, 244, 0.8) !important; border-radius: 50% !important; color: rgba(121, 255, 244, 1) !important; font-size: 1.4rem !important; justify-content: center !important; align-items: center !important; z-index: 999999 !important; box-shadow: 0 0 15px rgba(121, 255, 244, 0.4) !important;
@@ -507,4 +534,13 @@ body::before {
 
     .bottom-dock.mobile-show { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: translateY(0) !important; }
     .dock-sub-menu { display: none !important; }
+    .footer-credit {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin-top: 15px !important;
+        display: block !important;
+        text-align: center !important;
+    }
 }
