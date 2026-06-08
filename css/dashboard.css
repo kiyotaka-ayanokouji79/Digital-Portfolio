@@ -1,13 +1,47 @@
-body {
-    justify-content: flex-start !important; 
-    padding-top: 30px !important;
-    /* KHÓA CỨNG ẢNH NỀN: Giải quyết dứt điểm lỗi ảnh bị cuốn giật theo chữ khi lướt web */
-    background-attachment: fixed !important; 
-    background-position: center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
+/* ==========================================================================
+   CẤU HÌNH LUỒNG TỔNG VÀ RESET NỀN TRÊN LAPTOP
+   ========================================================================== */
+html {
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
 }
 
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding-top: 30px !important;
+    background-color: #0d1117;
+    background-image: none !important;
+    background-attachment: scroll !important;
+}
+
+/* Khóa cứng ảnh nền đứng im dưới đáy trang: Chữ trượt mượt mà lên trên */
+body::before {
+    content: "";
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-image: url('../assets/background.jpg') !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    z-index: -1000 !important;
+    pointer-events: none !important;
+}
+
+/* KHÔI PHỤC HIỆU ỨNG: Nhấp nháy phát quang Cyberpunk neon trắng - xanh ngọc của bạn */
 @keyframes glowPulse {
     0% {
         box-shadow: 0 0 15px rgba(121, 255, 244, 0.15);
@@ -19,511 +53,167 @@ body {
     }
 }
 
+
+/* ==========================================================================
+   ĐỊNH DẠNG KHU VỰC HEADER (PHÍA TRÊN CÙNG TRÊN LAPTOP)
+   ========================================================================== */
 .top-header {
-    position: relative;
-    width: 90%;
-    max-width: 900px;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    margin-bottom: 25px;
-    z-index: 5;
-    padding: 10px 0;
-    min-height: 50px;
+    position: relative !important;
+    width: 90% !important;
+    max-width: 900px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 25px !important;
+    z-index: 5 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    min-height: 50px !important;
 }
 
 .header-title-container {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
 }
 
 .header-logo {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-    border-radius: 6px;
-    mix-blend-mode: screen; 
+    width: 36px !important;
+    height: 36px !important;
+    object-fit: contain !important;
+    border-radius: 6px !important;
+    mix-blend-mode: screen !important;
 }
 
 .header-main-title {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', sans-serif !important;
     font-size: 1.6rem !important;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #ffffff;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
     margin: 0 !important;
 }
 
 .btn-back {
-    position: absolute;
-    left: 0; 
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 18px;
-    background-color: rgba(22, 27, 34, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    color: #8b949e;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    position: absolute !important;
+    left: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    background-color: rgba(22, 27, 34, 0.5) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 20px !important;
+    color: #8b949e !important;
+    text-decoration: none !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 .btn-back:hover {
-    color: #ffffff;
-    border-color: rgba(121, 255, 244, 0.8);
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateX(-3px);
-    box-shadow: 0 0 15px rgba(121, 255, 244, 0.5);
+    color: #ffffff !important;
+    border-color: rgba(121, 255, 244, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transform: translateX(-3px) !important;
+    box-shadow: 0 0 15px rgba(121, 255, 244, 0.5) !important;
 }
 
+
+/* ==========================================================================
+   KHUNG CHỨA VÀ KHU VỰC HIỂN THỊ NỘI DUNG CHÍNH (SỬA LỖI ĐƠ BÀI 6)
+   ========================================================================== */
 .content-container {
-    position: relative;
-    z-index: 2;
-    width: 90%;
-    max-width: 900px;
-    margin-bottom: 140px; 
-    padding: 20px;
-    margin-left: 290px; 
+    position: relative !important;
+    z-index: 2 !important;
+    width: 90% !important;
+    max-width: 900px !important;
+    margin-bottom: 140px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-left: 290px !important; /* Đẩy nội dung dạt phải nhường chỗ cho menu dọc lề trái */
+    height: auto !important;
+    overflow: visible !important;
 }
 
 .tab-content {
-    display: none; 
-    background-color: rgba(22, 27, 34, 0.4); 
-    border: 1px solid rgba(255, 255, 255, 0.15); 
-    border-radius: 16px;
-    padding: 40px;
-    text-align: left;
-    backdrop-filter: blur(8px); 
-    max-height: 800px;
-    overflow-y: auto;
-    box-sizing: border-box;
+    display: none !important;
+    background-color: rgba(22, 27, 34, 0.4) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 16px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    text-align: left !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    
+    /* Gỡ bỏ max-height để Bài 6 tự do dãn dài theo luồng cuộn dọc máy tính */
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 .tab-content.active {
-    display: block;
-    animation: fadeInTab 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards, glowPulse 3s ease-in-out infinite alternate;
-}
-
-.tab-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.tab-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 10px;
-    margin: 15px 0;
-}
-
-.tab-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
-}
-
-.tab-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(121, 255, 244, 0.5);
+    display: block !important;
+    animation: fadeInTab 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards, glowPulse 3s ease-in-out infinite alternate !important;
 }
 
 @keyframes fadeInTab {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .tab-content h2 {
-    font-family: 'Ubuntu', sans-serif;
-    color: #ffffff;
-    font-size: 2rem;
-    margin: 10px 0;
+    font-family: 'Ubuntu', sans-serif !important;
+    color: #ffffff !important;
+    font-size: 2rem !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 .meta-info {
-    color: #4dcff3;
-    font-size: 1.05rem;
-    margin-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
+    color: #4dcff3 !important;
+    font-size: 1.05rem !important;
+    margin-bottom: 30px !important;
+    border-bottom-width: 1px !important;
+    border-bottom-style: solid !important;
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 15px !important;
 }  
 
 .report-body {
-    color: #e1e4e8;
-    line-height: 1.8;
-    font-size: 1.1rem;
+    color: #e1e4e8 !important;
+    line-height: 1.8 !important;
+    font-size: 1.1rem !important;
 }
 
 .report-body p {
-    margin-top: 0;
-    margin-bottom: 16px;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
 }
 
 .report-body p:last-of-type {
-    margin-bottom: 24px;
+    margin-bottom: 24px !important;
 }
-
-.btn-toggle-pdf {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 15px;
-    padding: 12px 26px;
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-toggle-pdf:hover {
-    background-color: #ffffff;
-    color: #0d1117;
-    box-shadow: 0 0 20px rgba(121, 255, 244, 0.6);
-    transform: translateY(-2px);
-}
-
-/* THANH ĐIỀU HƯỚNG GỐC TRÊN PC (DỌC TRÁI) */
-.bottom-dock {
-    position: fixed;
-    top: 50%;
-    left: 30px;
-    transform: translateY(-50%);
-    z-index: 10;
-    display: flex;
-    flex-direction: column; 
-    align-items: stretch;
-    gap: 12px;
-    padding: 20px 16px;
-    background-color: rgba(13, 17, 23, 0.75); 
-    border: 1px solid rgba(255, 255, 255, 0.2); 
-    border-radius: 24px; 
-    backdrop-filter: blur(12px);
-    animation: glowPulse 3s ease-in-out infinite alternate;
-    width: 240px;
-    box-sizing: border-box;
-}
-
-.dock-item {
-    background: none;
-    border: none;
-    color: #8b949e;
-    padding: 12px 18px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: block;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.home-link {
-    color: #ffffff;
-    font-size: 0.9rem;
-}
-
-.dock-item:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.dock-item.active {
-    background-color: #ffffff;
-    color: #0d1117;
-    box-shadow: 0 0 15px rgba(121, 255, 244, 0.6);
-}
-
-.divider {
-    width: 100%;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 4px 0;
-}
-
-.dock-dropdown-container {
-    position: relative;
-    display: block;
-    width: 100%;
-}
-
-.dock-sub-menu {
-    position: absolute;
-    top: 50%;
-    left: 100%; 
-    transform: translateX(12px) translateY(-50%);
-    display: flex;
-    flex-direction: column; 
-    align-items: stretch;
-    gap: 6px;
-    padding: 10px 8px;
-    background-color: rgba(13, 17, 23, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    opacity: 0;
-    pointer-events: none; 
-    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 99;
-    animation: glowPulse 3s ease-in-out infinite alternate;
-    width: 110px;
-    box-sizing: border-box;
-}
-
-.dock-sub-menu::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    bottom: -20px;
-    left: -20px;
-    width: 30px; 
-    background: transparent; 
-}
-
-.dock-dropdown-container:hover .dock-sub-menu {
-    opacity: 1;
-    pointer-events: auto !important; 
-}
-
-.sub-item {
-    background: none;
-    border: none;
-    color: #8b949e;
-    padding: 8px 14px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 12px;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    pointer-events: auto !important;
-    display: block;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.sub-item:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.12);
-}
-
-.sub-item.sub-active {
-    background-color: #ffffff;
-    color: #0d1117;
-    box-shadow: 0 0 12px rgba(121, 255, 244, 0.6);
-}
-
-.assignment-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8); 
-    z-index: 100000; 
-    display: none;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.assignment-popup-overlay.show-popup {
-    display: flex;
-    opacity: 1;
-}
-
-.assignment-popup-card {
-    background-color: #0d1117;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 16px;
-    padding: 35px;
-    width: 90%;
-    max-width: 550px;
-    position: relative;
-    text-align: left;
-    animation: glowPulse 3s ease-in-out infinite alternate;
-}
-
-.assignment-popup-card h3 {
-    font-family: 'Ubuntu', sans-serif;
-    margin: 0 0 8px 0;
-    color: #ffffff;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.popup-subtitle {
-    color: #8b949e;
-    font-size: 0.95rem;
-    margin-bottom: 25px;
-}
-
-.popup-links-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.popup-links-grid button {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 12px 18px;
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    color: #e1e4e8;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.popup-links-grid button span {
-    font-family: monospace;
-    color: rgba(255, 255, 255, 0.4);
-    margin-right: 15px;
-    font-size: 0.85rem;
-}
-
-.popup-links-grid button .popup-icon {
-    margin-right: 10px;
-    font-size: 1.1rem;
-}
-
-.popup-links-grid button:hover {
-    background-color: #ffffff;
-    color: #0d1117;
-    border-color: rgba(121, 255, 244, 0.8);
-    transform: translateX(5px);
-    box-shadow: 0 0 15px rgba(121, 255, 244, 0.5);
-}
-
-.popup-links-grid button:hover span {
-    color: #0d1117;
-}
-
-.btn-close-popup {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #8b949e;
-    padding: 6px 14px;
-    font-size: 0.8rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-close-popup:hover {
-    color: #ffffff;
-    border-color: #ffffff;
-}
-
-.pdf-fullscreen-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000000; 
-    z-index: 1000000; 
-    display: none; 
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.pdf-fullscreen-modal.show-modal {
-    display: flex !important;
-    opacity: 1;
-}
-
-.modal-content-wrapper {
-    width: 90%;
-    max-width: 1200px;
-    height: 82vh; 
-    border: 1px solid rgba(255, 255, 255, 0.2); 
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #000000;
-    position: relative;
-    animation: glowPulse 3s ease-in-out infinite alternate;
-}
-
-.modal-toolbar {
-    width: 100%;
-    height: 56px;
-    background-color: #0d1117;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
-
-.toolbar-title {
-    color: #8b949e;
-    font-family: sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.iframe-container {
-    width: 100%;
-    height: calc(100% - 56px);
-    margin-top: 56px;
-    overflow: auto;
-    position: relative;
-}
-
-.modal-content-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-    background-color: #ffffff;
-}
-
-.btn-close-modal {
-    align-self: center;
-    margin-left: auto;
-    margin-right: 5%; 
-    margin-bottom: 15px;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    padding: 8px 24px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-close-modal:hover {
-    background-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
 .continuing-journey {
     text-align: left;
     font-size: 0.95rem;
@@ -532,185 +222,289 @@ body {
     margin-top: 30px;
     letter-spacing: 0.5px;
 }
-
-.footer-credit {
-    position: fixed;
-    bottom: 12px;
-    left: 45px; 
-    z-index: 5;
-    font-size: 2rem;
-    font-family: 'Ubuntu', sans-serif;
-    color: rgb(255, 255, 255); 
-    letter-spacing: 0.5px;
-    pointer-events: none; 
-    transition: color 0.3s ease;
+.btn-toggle-pdf {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-top: 15px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    padding-left: 26px !important;
+    padding-right: 26px !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: #ffffff !important;
+    border-radius: 30px !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
 }
 
-.footer-credit:hover {
-    color: rgba(121, 255, 244, 0.8); 
+.btn-toggle-pdf:hover {
+    background-color: #ffffff !important;
+    color: #0d1117 !important;
+    box-shadow: 0 0 20px rgba(121, 255, 244, 0.6) !important;
+    transform: translateY(-2px) !important;
 }
+
 
 /* ==========================================================================
-   RESPONSIVE MOBILE CHO DASHBOARD: KHÓA CỨNG NỀN - THU GỌN HEADER TỐI TỐI ĐA
+   KHÔI PHỤC: THANH MÀU GỐC VÀ HIỆU ỨNG CHO THANH ĐIỀU HƯỚNG CHÍNH (LAPTOP)
    ========================================================================== */
-@media (max-width: 768px) {
-    /* 1. Kích hoạt cuộn mượt và khóa cứng ảnh nền tại Dashboard không cho cuốn theo */
-    html, body {
-        height: auto !important;
-        min-height: 100vh !important;
-        overflow-y: auto !important; 
-        overflow-x: hidden !important;
-        background-attachment: fixed !important; /* Ảnh nền đứng im, chữ trượt mượt mà */
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Đệm đầu trang gọn gàng để nội dung lọt dưới Header thanh mảnh mới */
-    .content-container {
-        margin-left: 0 !important;
-        padding-top: 140px !important; 
-        padding-bottom: 120px !important;
-        height: auto !important;
-        max-height: none !important;
-        overflow: visible !important;
-        box-sizing: border-box !important;
-        width: 100% !important;
-    }
-
-    /* 2. THU GỌN THANH HEADER TỐI MÀU GỌN NHƯ HÌNH VẼ CỦA BẠN */
-    .top-header {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: auto !important;
-        padding: 8px 10px !important; /* Độ dày siêu mảnh gọn */
-        background: rgba(13, 17, 23, 0.98) !important;
-        backdrop-filter: blur(15px) !important;
-        z-index: 99999 !important;
-        box-sizing: border-box !important;
-        border-bottom: 1px solid rgba(121, 255, 244, 0.15) !important;
-        margin-bottom: 0 !important;
-        max-width: none !important;
-    }
-
-    /* Đưa nút Quay lại và tiêu đề nằm trên 1 hàng ngang duy nhất */
-    .header-nav-top {
-        display: flex !important;
-        flex-direction: row !important; 
-        align-items: center !important;
-        justify-content: space-between !important; 
-        width: 100% !important;
-        gap: 10px !important;
-    }
-
-    .btn-back {
-        position: relative !important;
-        left: 0 !important;
-        font-size: 0.75rem !important; 
-        padding: 5px 10px !important;
-        white-space: nowrap !important;
-        display: inline-flex !important;
-    }
-
-    .header-title-container {
-        margin-top: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-    }
-
-    .header-logo {
-        width: 20px !important; 
-        height: 20px !important;
-    }
-
-    /* THU BÉ CHỮ DIGITAL PORTFOLIO: Khít viền, không tràn khung hình dọc */
-    .header-main-title {
-        font-size: 1.1rem !important; 
-        margin: 0 !important;
-        white-space: nowrap !important;
-        letter-spacing: 0.5px !important;
-    }
-
-    .tab-content {
-        padding: 25px 20px !important;
-    }
-
-    .tab-content .badge {
-        display: inline-block !important;
-        margin-top: 5px !important;
-        margin-bottom: 10px !important;
-    }
-
-    /* 3. NÚT TRÒN NỔI (FAB) */
-    .mobile-nav-toggle {
-        display: flex !important;
-        position: fixed !important;
-        bottom: 25px !important;
-        left: 25px !important;
-        width: 55px !important;
-        height: 55px !important;
-        background-color: #0d1117 !important;
-        border: 2px solid rgba(121, 255, 244, 0.8) !important;
-        border-radius: 50% !important;
-        color: rgba(121, 255, 244, 1) !important;
-        font-size: 1.4rem !important;
-        justify-content: center !important;
-        align-items: center !important;
-        cursor: pointer !important;
-        z-index: 999999 !important;
-        box-shadow: 0 0 15px rgba(121, 255, 244, 0.4) !important;
-    }
-
-    /* 4. TRIỆT TIÊU HOÀN TOÀN MENU PHỤ HÀNG NGANG CŨ TRÊN MOBILE */
-    .dock-sub-menu {
-        display: none !important; 
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-        height: 0 !important;
-        width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    /* Thanh điều hướng lớn khi ẩn */
-    .bottom-dock {
-        position: fixed !important;
-        bottom: 95px !important;
-        left: 25px !important;
-        top: auto !important;
-        width: 220px !important;
-        flex-direction: column !important;
-        transform: translateY(20px) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important; 
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        z-index: 999990 !important;
-        background: #0d1117 !important;
-        border: 1px solid rgba(121, 255, 244, 0.3) !important;
-        padding: 10px !important;
-        border-radius: 12px !important;
-    }
-
-    .bottom-dock.mobile-show {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important; 
-        transform: translateY(0) !important;
-    }
-
-    .dock-item {
-        width: 100% !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-        margin: 5px 0 !important;
-    }
+.bottom-dock {
+    position: fixed !important;
+    top: 50% !important;
+    left: 30px !important;
+    transform: translateY(-50%) !important;
+    z-index: 100 !important;
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    
+    /* TRẢ LẠI MÀU GỐC: Nền đen mờ 0.75 kết hợp viền sáng bạc Cyberpunk nguyên bản của bạn */
+    background-color: rgba(13, 17, 23, 0.75) !important; 
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgba(255, 255, 255, 0.2) !important; 
+    border-radius: 24px !important; 
+    backdrop-filter: blur(12px) !important;
+    
+    /* ĐỒNG BỘ HIỆU ỨNG: Chạy lại xung động nhấp nháy phát quang chuẩn PC */
+    animation: glowPulse 3s ease-in-out infinite alternate !important;
+    
+    width: 240px !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
-@media (min-width: 769px) {
-    .mobile-nav-toggle {
-        display: none !important;
+.dock-item {
+    background: none !important;
+    border: none !important;
+    color: #8b949e !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+
+.home-link {
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+}
+
+.dock-item:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ĐỔI MÀU KHI ACTIVE: Nút chuyển sang nền trắng, chữ đen phát quang xanh ngọc xịn mịn */
+.dock-item.active {
+    background-color: #ffffff !important;
+    color: #0d1117 !important;
+    box-shadow: 0 0 15px rgba(121, 255, 244, 0.6) !important;
+}
+
+.divider {
+    width: 100% !important;
+    height: 1px !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+
+.dock-dropdown-container {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+
+/* ==========================================================================
+   SỬA TRIỆT ĐỂ: GIỮ LẠI THANH ĐIỀU HƯỚNG PHỤ KHI TRỎ CHUỘT VÀO
+   ========================================================================== */
+.dock-sub-menu {
+    position: absolute !important;
+    top: 50% !important;
+    left: 100% !important; 
+    transform: translateX(12px) translateY(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: stretch !important;
+    gap: 6px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    background-color: rgba(13, 17, 23, 0.95) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(12px) !important;
+    
+    /* Trạng thái mặc định ẩn */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important; 
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    z-index: 99 !important;
+    width: 110px !important;
+    box-sizing: border-box !important;
+    animation: glowPulse 3s ease-in-out infinite alternate !important;
+}
+
+/* KHÓA TƯƠNG TÁC GIAO THOA: Tạo vùng đệm cầu nối vô hình để giữ menu phụ không bao giờ tự biến mất */
+.dock-sub-menu::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -20px !important;
+    bottom: -20px !important;
+    left: -30px !important; /* Mở rộng vùng đệm sang lề trái 30px để triệt tiêu khe hở chuột chuột trượt */
+    width: 40px !important; 
+    background-color: transparent !important; 
+    pointer-events: auto !important;
+}
+
+/* Kích hoạt hiển thị đồng bộ cả khối cha lẫn khối con khi hover */
+.dock-dropdown-container:hover .dock-sub-menu,
+.dock-sub-menu:hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important; 
+}
+
+.sub-item {
+    background: none !important;
+    border: none !important;
+    color: #8b949e !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+    pointer-events: auto !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+
+.sub-item:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.sub-item.sub-active {
+    background-color: #ffffff !important;
+    color: #0d1117 !important;
+    box-shadow: 0 0 12px rgba(121, 255, 244, 0.6) !important;
+}
+
+.mobile-nav-toggle {
+    display: none !important;
+}
+
+
+/* ==========================================================================
+   CẤU TRÚC POPUP DANH SÁCH BÀI TẬP VÀ TOÀN MÀN HÌNH MODAL PDF (PC)
+   ========================================================================== */
+.assignment-popup-overlay {
+    position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.8) !important; z-index: 100000 !important; display: none !important; align-items: center !important; justify-content: center !important; opacity: 0 !important; transition: opacity 0.3s ease !important;
+}
+.assignment-popup-overlay.show-popup { display: flex !important; opacity: 1 !important; }
+.assignment-popup-card { background-color: #0d1117 !important; border-width: 1px !important; border-style: solid !important; border-color: rgba(255, 255, 255, 0.18) !important; border-radius: 16px !important; padding-top: 35px !important; padding-bottom: 35px !important; padding-left: 35px !important; padding-right: 35px !important; width: 90% !important; max-width: 550px !important; position: relative !important; text-align: left !important; animation: glowPulse 3s ease-in-out infinite alternate !important; }
+.assignment-popup-card h3 { font-family: 'Ubuntu', sans-serif !important; margin: 0 0 8px 0 !important; color: #ffffff !important; font-size: 1.4rem !important; font-weight: 700 !important; letter-spacing: 0.5px !important; }
+.popup-subtitle { color: #8b949e !important; font-size: 0.95rem !important; margin-bottom: 25px !important; }
+.popup-links-grid { display: flex !important; flex-direction: column !important; gap: 10px !important; }
+.popup-links-grid button { display: flex !important; align-items: center !important; width: 100% !important; padding-top: 12px !important; padding-bottom: 12px !important; padding-left: 18px !important; padding-right: 18px !important; background-color: rgba(255, 255, 255, 0.03) !important; border-width: 1px !important; border-style: solid !important; border-color: rgba(255, 255, 255, 0.08) !important; border-radius: 8px !important; color: #e1e4e8 !important; font-size: 0.95rem !important; font-weight: 600 !important; text-align: left !important; cursor: pointer !important; transition: all 0.25s ease !important; }
+.popup-links-grid button span { font-family: monospace !important; color: rgba(255, 255, 255, 0.4) !important; margin-right: 15px !important; font-size: 0.85rem !important; }
+.popup-links-grid button .popup-icon { margin-right: 10px !important; font-size: 1.1rem !important; }
+.popup-links-grid button:hover { background-color: #ffffff !important; color: #0d1117 !important; border-color: rgba(121, 255, 244, 0.8) !important; transform: translateX(5px) !important; box-shadow: 0 0 15px rgba(121, 255, 244, 0.5) !important; }
+.popup-links-grid button:hover span { color: #0d1117 !important; }
+.btn-close-popup { position: absolute !important; top: 25px !important; right: 25px !important; background: transparent !important; border-width: 1px !important; border-style: solid !important; border-color: rgba(255, 255, 255, 0.3) !important; color: #8b949e !important; padding-top: 6px !important; padding-bottom: 6px !important; padding-left: 14px !important; padding-right: 14px !important; font-size: 0.8rem !important; border-radius: 20px !important; cursor: pointer !important; }
+.btn-close-popup:hover { color: #ffffff !important; border-color: #ffffff !important; }
+
+.pdf-fullscreen-modal { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; background-color: #000000 !important; z-index: 1000000 !important; display: none !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; opacity: 0 !important; transition: opacity 0.3s ease !important; }
+.pdf-fullscreen-modal.show-modal { display: flex !important; opacity: 1 !important; }
+.modal-content-wrapper { width: 90% !important; max-width: 1200px !important; height: 82vh !important; border-width: 1px !important; border-style: solid !important; border-color: rgba(255, 255, 255, 0.2) !important; border-radius: 8px !important; overflow: hidden !important; background-color: #000000 !important; position: relative !important; animation: glowPulse 3s ease-in-out infinite alternate !important; }
+.modal-toolbar { width: 100% !important; height: 56px !important; background-color: #0d1117 !important; border-bottom-width: 1px !important; border-bottom-style: solid !important; border-bottom-color: rgba(255, 255, 255, 0.1) !important; display: flex !important; align-items: center !important; padding-top: 0 !important; padding-bottom: 0 !important; padding-left: 20px !important; padding-right: 20px !important; box-sizing: border-box !important; position: absolute !important; top: 0 !important; left: 0 !important; z-index: 10 !important; }
+.toolbar-title { color: #8b949e !important; font-family: sans-serif !important; font-size: 0.8rem !important; font-weight: 600 !important; letter-spacing: 1px !important; }
+.iframe-container { width: 100% !important; height: calc(100% - 56px) !important; margin-top: 56px !important; overflow: auto !important; position: relative !important; }
+.modal-content-wrapper iframe { width: 100% !important; height: 100% !important; border: none !important; display: block !important; background-color: #ffffff !important; }
+.btn-close-modal { align-self: center !important; margin-left: auto !important; margin-right: 5% !important; margin-bottom: 15px !important; background-color: #000000 !important; color: #ffffff !important; border-width: 1px !important; border-style: solid !important; border-color: #ffffff !important; padding-top: 8px !important; padding-bottom: 8px !important; padding-left: 24px !important; padding-right: 24px !important; font-size: 0.9rem !important; font-weight: 600 !important; border-radius: 20px !important; cursor: pointer !important; }
+.btn-close-modal:hover { background-color: #ffffff !important; color: #000000 !important; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important; }
+.footer-credit { position: fixed !important; bottom: 12px !important; left: 45px !important; z-index: 5 !important; font-size: 2rem !important; font-family: 'Ubuntu', sans-serif !important; color: rgb(255, 255, 255) !important; letter-spacing: 0.5px !important; pointer-events: none !important; transition: color 0.3s ease !important; }
+.footer-credit:hover { color: rgba(121, 255, 244, 0.8) !important; }
+
+
+/* ==========================================================================
+   CẤU HÌNH RESPONSIVE CHO ĐIỆN THOẠI DI ĐỘNG (CHIỀU RỘNG MÀN HÌNH < 768PX)
+   ========================================================================== */
+@media (max-width: 767px) {
+    html, body {
+        overflow-y: auto !important;
+        height: auto !important;
     }
+    
+    body::before {
+        background-image: url('../assets/background.jpg') !important;
+        z-index: -1000 !important;
+    }
+    
+    .content-container {
+        position: relative !important;
+        top: 0 !important; left: 0 !important; right: 0 !important;
+        margin-left: 0 !important;
+        padding-top: 140px !important;
+        padding-bottom: 120px !important;
+        width: 100% !important;
+    }
+
+    .top-header {
+        position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; transform: none !important;
+        padding-top: 8px !important; padding-bottom: 8px !important; padding-left: 10px !important; padding-right: 10px !important;
+        background-color: rgba(13, 17, 23, 0.98) !important; border-bottom-width: 1px !important; border-bottom-style: solid !important; border-bottom-color: rgba(121, 255, 244, 0.15) !important;
+    }
+
+    .header-nav-top { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; }
+    .btn-back { position: relative !important; font-size: 0.75rem !important; padding-top: 5px !important; padding-bottom: 5px !important; padding-left: 10px !important; padding-right: 10px !important; }
+    .header-main-title { font-size: 1.1rem !important; letter-spacing: 0.5px !important; }
+
+    .mobile-nav-toggle {
+        display: flex !important; position: fixed !important; bottom: 25px !important; left: 25px !important; width: 55px !important; height: 55px !important; background-color: #0d1117 !important; border-width: 2px !important; border-style: solid !important; border-color: rgba(121, 255, 244, 0.8) !important; border-radius: 50% !important; color: rgba(121, 255, 244, 1) !important; font-size: 1.4rem !important; justify-content: center !important; align-items: center !important; z-index: 999999 !important; box-shadow: 0 0 15px rgba(121, 255, 244, 0.4) !important;
+    }
+
+    .bottom-dock {
+        position: fixed !important; bottom: 95px !important; left: 25px !important; top: auto !important; width: 220px !important; flex-direction: column !important; transform: translateY(20px) !important;
+        opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; background-color: #0d1117 !important; border-width: 1px !important; border-style: solid !important; border-color: rgba(121, 255, 244, 0.3) !important; padding-top: 10px !important; padding-bottom: 10px !important; padding-left: 10px !important; padding-right: 10px !important; border-radius: 12px !important;
+    }
+
+    .bottom-dock.mobile-show { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: translateY(0) !important; }
+    .dock-sub-menu { display: none !important; }
 }

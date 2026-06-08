@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Ubuntu:wght@500;700&display=swap');
 
+/* ==========================================================================
+   CẤU HÌNH PHÔNG CHỮ VÀ THÀNH PHẦN CƠ BẢN
+   ========================================================================= */
 body {
     font-family: 'Be Vietnam Pro', 'Segoe UI', sans-serif;
 }
 
-h1, h2, h3, .header-main-title {
+h1, 
+h2, 
+h3, 
+.header-main-title {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
+
 body {
     background-image: url('../assets/bg.jpg'); 
     background-size: cover;
@@ -16,7 +23,6 @@ body {
     background-attachment: fixed;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    
     color: #ffffff;
     margin: 0;
     padding: 20px;
@@ -25,7 +31,8 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     position: relative;
 }
 
@@ -39,12 +46,24 @@ body::before {
     background-color: rgba(13, 17, 23, 0.8);
     z-index: 1;
 }
+
+/* ==========================================================================
+   CẤU HÌNH CHO GIAO DIỆN LAPTOP / PC (MÀN HÌNH RỘNG RÃI)
+   SỬA TRIỆT ĐỂ LỖI CHỒNG LẤP VÀ HẠ KHỐI BADGE XUỐNG DƯỚI THOÁNG ĐÃNG
+   ========================================================================== */
+
+/* Thanh tiêu đề lớn phía trên trang chủ */
 .home-header {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative !important; /* Hủy bỏ định vị tuyệt đối gây chồng đè */
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    margin-top: 60px !important; /* Tạo khoảng trống thở lề trên đỉnh laptop */
+    margin-bottom: 40px !important; /* Đẩy khối nội dung bên dưới dạt xuống hẳn */
     z-index: 5;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
 }
 
 .header-title-container {
@@ -62,19 +81,25 @@ body::before {
 }
 
 .header-main-title {
-    font-size: 1.6rem;
+    font-size: 2.4rem !important; /* Tăng kích thước chữ tiêu đề lớn chuẩn laptop */
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px !important;
     text-transform: uppercase;
     color: #ffffff;
     margin: 0;
 }
+
+/* Khung bọc cụm nội dung mô tả hành trình học tập */
 .container {
     position: relative;
     z-index: 2;
     max-width: 850px;
     text-align: center;
     padding: 20px;
+    margin-top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     opacity: 0;
     transform: translateY(30px);
     animation: cubicFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -87,17 +112,22 @@ body::before {
     }
 }
 
+/* KÉO PHẦN BADGE STUDENT XUỐNG DƯỚI HẲN KHÔNG GIAN TIÊU ĐỀ */
 .badge {
     display: inline-block;
-    padding: 6px 16px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
     background-color: rgba(255, 255, 255, 0.05);
     color: #ffffff;
     border: 1px solid #ffffff;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 0.85rem !important;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-bottom: 25px;
+    margin-top: 10px !important;
+    margin-bottom: 35px !important; /* Tạo vách ngăn thoáng với dòng Xin chào phía dưới */
 }
 
 h1 {
@@ -145,100 +175,83 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
+
 .footer-credit {
     position: fixed;
     bottom: 12px;
-    left: 45px; /* Căn chỉnh lề trái nhích vào một chút để thẳng hàng một cách cân đối với thanh Dock dọc */
+    left: 45px; 
     z-index: 5;
     font-size: 2rem;
     font-family: 'Ubuntu', sans-serif;
-    color: rgb(255, 255, 255); /* Để màu xám mờ tối giản để không làm lệch sự tập trung khỏi bảng nội dung chính */
+    color: rgb(255, 255, 255); 
     letter-spacing: 0.5px;
-    pointer-events: none; /* Tránh cản trở các thao tác click chuột ở góc màn hình */
+    pointer-events: none; 
     transition: color 0.3s ease;
 }
 
 .footer-credit:hover {
-    color: rgba(121, 255, 244, 0.8); /* Khi di chuột qua sẽ sáng nhẹ lên màu xanh ngọc neon đồng bộ với hệ thống */
+    color: rgba(121, 255, 244, 0.8); 
 }
-/* --- RESPONSIVE FIX FOR MOBILE --- */
+
 /* ==========================================================================
-   RESPONSIVE MOBILE CHO TRANG CHỦ: FIX TRIỆT ĐỂ LỖI ĐÈ CHỮ & CUỘN LẮC NỀN
-   ========================================================================== */
-/* ==========================================================================
-   MOBILE INDEX FIX: ĐẨY BADGE VÀ NỘI DUNG XUỐNG DƯỚI
+   CẤU HÌNH ĐỘC LẬP KHI CO VỀ MÀN HÌNH ĐIỆN THOẠI DI ĐỘNG (< 768PX)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Khóa cứng ảnh nền trang chủ giúp hiệu ứng cuộn trang mượt mà */
-    html, body {
-        height: auto !important;
-        min-height: 100vh !important;
-        overflow-y: auto !important; 
-        overflow-x: hidden !important;
-        background-attachment: fixed !important; /* Ảnh nền đứng im, chữ trượt lên mượt mà */
-    }
-
-    /* Giải phóng cấu trúc absolute dồn nén, đưa về cấu trúc luồng tự nhiên tăng khoảng cách thở */
-    .hero-container, 
-    .main-wrapper,
-    body > div:first-of-type { 
+    
+    .container,
+    body > div:first-of-type {
         position: relative !important;
         height: auto !important;
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-        padding: 40px 20px 100px 20px !important; /* Tạo khoảng trống trên dưới rộng rãi */
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
+        min-height: 100vh !important;
+        padding-top: 140px !important; 
+        padding-bottom: 20px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
         box-sizing: border-box !important;
     }
 
-    /* FIX DỨT ĐIỂM LỖI ĐÈ NHAU: Định dạng khoảng cách rõ ràng giữa Badge và Tiêu đề */
-    .badge, .student-badge, body .badge {
-        position: relative !important;
-        display: inline-block !important;
-        margin-bottom: 15px !important; /* Tạo khoảng cách an toàn đẩy tiêu đề xuống dưới */
+    .home-header {
+        position: fixed !important;
+        top: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        background-color: rgba(13, 17, 23, 0.95) !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        width: 100% !important;
+    }
+
+    .header-main-title {
+        font-size: 1.3rem !important;
+    }
+
+    .badge {
         margin-top: 20px !important;
-        order: 1; /* Ưu tiên nằm trên cùng trong cột nội dung */
+        margin-bottom: 15px !important;
     }
 
-    /* Tiêu đề "Xin chào..." */
-    h1, .main-title, h1.header-main-title {
-        position: relative !important;
-        font-size: 1.8rem !important; /* Thu nhỏ vừa vặn không lo kích vỡ khung */
+    h1 {
+        font-size: 1.65rem !important;
         line-height: 1.4 !important;
-        margin-top: 10px !important;
-        margin-bottom: 25px !important; /* Đẩy khối nội dung mô tả phía dưới xa ra */
-        order: 2;
     }
 
-    .description-text, p {
+    .description-text {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
-        margin-bottom: 35px !important;
-        order: 3;
     }
 
-    /* Nút bấm */
     .btn-showcase {
-        order: 4;
-        margin-top: 10px !important;
+        margin-top: 25px !important;
+        padding: 10px 24px !important;
     }
 
-    /* Định dạng lại dòng credit chân trang nằm ngay ngắn tự nhiên dưới đáy */
     .footer-credit {
         position: relative !important;
-        bottom: 0 !important;
         left: 0 !important;
-        margin-top: 60px !important;
-        margin-bottom: 20px !important;
+        margin-top: 40px !important;
+        margin-bottom: 10px !important;
+        font-size: 1.2rem !important;
         text-align: center !important;
-        display: block !important;
-        width: 100% !important;
-        font-size: 0.75rem !important;
-        color: rgba(255, 255, 255, 0.4) !important;
-        order: 5;
     }
 }
