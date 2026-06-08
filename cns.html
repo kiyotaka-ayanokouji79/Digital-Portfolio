@@ -10,12 +10,14 @@
 <body>
 
     <header class="top-header">
-        <a href="index.html" class="btn-back" onclick="handleBackAction(event)">
-            ◀ Quay lại
-        </a>
-        <div class="header-title-container">
-            <img src="assets/logo.png" alt="Digital Portfolio Icon" class="header-logo">
-            <h1 class="header-main-title">Digital Portfolio</h1>
+        <div class="header-nav-top">
+            <a href="index.html" class="btn-back" onclick="handleBackAction(event)">
+                ◀ Quay lại
+            </a>
+            <div class="header-title-container">
+                <img src="assets/logo.png" alt="Digital Portfolio Icon" class="header-logo">
+                <h1 class="header-main-title">Digital Portfolio</h1>
+            </div>
         </div>
     </header>
 
@@ -195,7 +197,9 @@
         </div>
     </div>
 
-    <nav class="bottom-dock" id="main-navigation-dock">
+    <button class="mobile-nav-toggle" onclick="toggleMobileNav()">☰</button>
+
+    <nav class="bottom-dock dock-vertical" id="main-navigation-dock">
         <a href="index.html" class="dock-item home-link">◀ Trang chủ & Giới thiệu</a>
         <div class="divider"></div>
         <div class="dock-dropdown-container">
@@ -228,6 +232,17 @@
             'tongket': 'dock-btn-tongket'
         };
 
+        function toggleMobileNav() {
+            const dock = document.getElementById('main-navigation-dock');
+            const toggleBtn = document.querySelector('.mobile-nav-toggle');
+            dock.classList.toggle('mobile-show');
+            if (dock.classList.contains('mobile-show')) {
+                toggleBtn.innerHTML = '✕';
+            } else {
+                toggleBtn.innerHTML = '☰';
+            }
+        }
+
         function switchTab(tabId, element, isBackAction = false) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -254,6 +269,12 @@
                 if (tabHistory[tabHistory.length - 1] !== tabId) {
                     tabHistory.push(tabId);
                 }
+            }
+
+            // Tự động thu menu lại khi Hưng chuyển tab trên điện thoại
+            const dock = document.getElementById('main-navigation-dock');
+            if (dock.classList.contains('mobile-show')) {
+                toggleMobileNav();
             }
         }
 
@@ -299,29 +320,6 @@
             if (modal) {
                 modal.classList.remove('show-modal');
                 document.body.style.overflow = 'auto';
-            }
-        }
-        function toggleMobileNav() {
-            const dock = document.getElementById('main-navigation-dock');
-            const toggleBtn = document.querySelector('.mobile-nav-toggle');
-            
-            dock.classList.toggle('mobile-show');
-            
-            // Đổi biểu tượng nút tròn khi đóng/mở
-            if(dock.classList.contains('mobile-show')) {
-                toggleBtn.innerHTML = '✕';
-            } else {
-                toggleBtn.innerHTML = '☰';
-            }
-        }
-
-        // Tự động đóng thanh điều hướng khi Hưng chọn chuyển Tab hoặc Bài tập trên mobile
-        const originalSwitchTab = switchTab;
-        switchTab = function(tabId, element, isBackAction = false) {
-            originalSwitchTab(tabId, element, isBackAction);
-            const dock = document.getElementById('main-navigation-dock');
-            if(dock.classList.contains('mobile-show')) {
-                toggleMobileNav();
             }
         }
     </script>
