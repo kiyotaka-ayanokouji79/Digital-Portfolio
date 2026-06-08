@@ -195,7 +195,7 @@
         </div>
     </div>
 
-    <nav class="bottom-dock dock-vertical">
+    <nav class="bottom-dock" id="main-navigation-dock">
         <a href="index.html" class="dock-item home-link">◀ Trang chủ & Giới thiệu</a>
         <div class="divider"></div>
         <div class="dock-dropdown-container">
@@ -299,6 +299,29 @@
             if (modal) {
                 modal.classList.remove('show-modal');
                 document.body.style.overflow = 'auto';
+            }
+        }
+        function toggleMobileNav() {
+            const dock = document.getElementById('main-navigation-dock');
+            const toggleBtn = document.querySelector('.mobile-nav-toggle');
+            
+            dock.classList.toggle('mobile-show');
+            
+            // Đổi biểu tượng nút tròn khi đóng/mở
+            if(dock.classList.contains('mobile-show')) {
+                toggleBtn.innerHTML = '✕';
+            } else {
+                toggleBtn.innerHTML = '☰';
+            }
+        }
+
+        // Tự động đóng thanh điều hướng khi Hưng chọn chuyển Tab hoặc Bài tập trên mobile
+        const originalSwitchTab = switchTab;
+        switchTab = function(tabId, element, isBackAction = false) {
+            originalSwitchTab(tabId, element, isBackAction);
+            const dock = document.getElementById('main-navigation-dock');
+            if(dock.classList.contains('mobile-show')) {
+                toggleMobileNav();
             }
         }
     </script>

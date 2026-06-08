@@ -544,3 +544,66 @@ body {
 .footer-credit:hover {
     color: rgba(121, 255, 244, 0.8); /* Khi di chuột qua sẽ sáng nhẹ lên màu xanh ngọc neon đồng bộ với hệ thống */
 }
+/* --- GIAO DIỆN NÚT TRÒN NỔI CHO MOBILE --- */
+@media (max-width: 768px) {
+    /* Khởi tạo nút tròn nổi ở góc dưới bên trái */
+    .mobile-nav-toggle {
+        display: flex !important;
+        position: fixed;
+        bottom: 25px;
+        left: 25px;
+        width: 55px;
+        height: 55px;
+        background-color: #0d1117;
+        border: 2px solid rgba(121, 255, 244, 0.8);
+        border-radius: 50%;
+        color: rgba(121, 255, 244, 1);
+        font-size: 1.4rem;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 99999; /* Luôn nằm trên cùng */
+        box-shadow: 0 0 15px rgba(121, 255, 244, 0.4);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-nav-toggle:active {
+        transform: scale(0.9);
+    }
+
+    /* Mặc định ẩn thanh điều hướng lớn đi */
+    .bottom-dock {
+        position: fixed !important;
+        bottom: 95px !important; /* Nằm ngay trên nút tròn */
+        left: 25px !important;
+        top: auto !important;
+        transform: translateY(20px) !important;
+        width: 240px !important;
+        flex-direction: column !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        z-index: 99998 !important;
+    }
+
+    /* Lớp kích hoạt bung thanh điều hướng khi bấm vào nút tròn */
+    .bottom-dock.mobile-show {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Giữ nguyên cấu trúc vạch phân cách ngang trên mobile */
+    .divider {
+        width: 100% !important;
+        height: 1px !important;
+        margin: 4px 0 !important;
+    }
+}
+
+/* Ẩn nút tròn khi xem trên máy tính PC */
+@media (min-width: 769px) {
+    .mobile-nav-toggle {
+        display: none !important;
+    }
+}
