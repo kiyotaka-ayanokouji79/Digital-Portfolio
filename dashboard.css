@@ -466,7 +466,7 @@ body::before {
 /* ==========================================================================
    CẤU HÌNH RESPONSIVE CHO ĐIỆN THOẠI DI ĐỘNG (CHIỀU RỘNG MÀN HÌNH < 768PX)
    ========================================================================== */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     html, body {
         overflow-y: auto !important;
         height: auto !important;
@@ -482,7 +482,7 @@ body::before {
         top: 0 !important; left: 0 !important; right: 0 !important;
         margin-left: 0 !important;
         padding-top: 140px !important;
-        padding-bottom: 120px !important;
+        padding-bottom: 140px !important;
         width: 100% !important;
     }
 
@@ -504,9 +504,24 @@ body::before {
         justify-content: center !important;
     }
 
-    .header-nav-top { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; width: 100% !important; }
-    .btn-back { position: relative !important; font-size: 0.75rem !important; padding-top: 5px !important; padding-bottom: 5px !important; padding-left: 10px !important; padding-right: 10px !important; }
-    .header-main-title { font-size: 1.1rem !important; letter-spacing: 0.5px !important; }
+    .header-nav-top { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; width: 100% !important; gap: 15px !important;}
+    .btn-back { position: relative !important; font-size: 0.75rem !important; padding-top: 5px !important; padding-bottom: 5px !important; padding-left: 10px !important; padding-right: 10px !important; display: inline-flex !important; }
+    .header-main-title { font-size: 1.1rem !important; letter-spacing: 0.5px !important; gap: 6px; }
+    .header-logo {
+        width: 20px !important;
+        height: 20px !important;
+    }
+    .header-main-title {
+        font-size: 1.1rem !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+    }
+    .tab-content {
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
 
     .mobile-nav-toggle {
         display: flex !important; position: fixed !important; bottom: 25px !important; left: 25px !important; width: 55px !important; height: 55px !important; background-color: #0d1117 !important; border-width: 2px !important; border-style: solid !important; border-color: rgba(121, 255, 244, 0.8) !important; border-radius: 50% !important; color: rgba(121, 255, 244, 1) !important; font-size: 1.4rem !important; justify-content: center !important; align-items: center !important; z-index: 999999 !important; box-shadow: 0 0 15px rgba(121, 255, 244, 0.4) !important;
