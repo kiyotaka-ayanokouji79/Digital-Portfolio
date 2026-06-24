@@ -304,29 +304,38 @@
     </button>
     
     <audio id="bgAudio" src="https://www.dropbox.com/scl/fi/76r1p2tclxdxqtk8ijxzb/musicbg.mp3?rlkey=myw0xnfz7yi1hhvjio20zvpeq&st=snkv3007&dl=1" loop preload="auto"></audio>
+    
+    <audio id="clickSound" src="assets/click.wav" preload="auto"></audio>
 
     <script>
+        // --- LOGIC PHÁT TIẾNG CLICK KHI CHUYỂN ĐỔI GIAO DIỆN ---
+        function playClickSound() {
+            const clickAudio = document.getElementById('clickSound');
+            if (clickAudio) {
+                clickAudio.volume = 0.3; // Giảm âm lượng click xuống mức 0.3 vừa phải, êm tai hơn
+                clickAudio.currentTime = 0; // Tua nhanh về đầu để các click liên tục không bị mất tiếng
+                clickAudio.play().catch(() => {}); // Tránh lỗi bảo mật autoplay của trình duyệt
+            }
+        }
+
         // --- LOGIC CHUYỂN PHÂN VÙNG TRANG (HỢP NHẤT INDEX-DASHBOARD) ---
         function navigateToSection(sectionId) {
-            // Ẩn tất cả phân vùng trang
+            playClickSound(); // Kích hoạt tiếng click
+            
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-page'));
             
-            // Hiện phân vùng được chọn
             const targetSection = document.getElementById(sectionId);
             if (targetSection) targetSection.classList.add('active-page');
 
-            // Quản lý việc ẩn/hiện thanh menu dock ở dưới đáy
             const dockMenu = document.getElementById('main-navigation-dock');
             if (sectionId === 'dashboard-section') {
                 dockMenu.classList.add('show-dock');
             } else {
                 dockMenu.classList.remove('show-dock');
-                // Đóng luôn menu mobile nếu đang mở
                 dockMenu.classList.remove('mobile-show');
                 document.querySelector('.mobile-nav-toggle').innerHTML = '☰';
             }
             
-            // Cuộn mượt lên đầu trang khi chuyển vùng nội dung
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -346,6 +355,8 @@
         }
 
         function switchTab(tabId, element, isBackAction = false) {
+            playClickSound(); // Kích hoạt tiếng click
+            
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             const activeContent = document.getElementById(tabId);
             if (activeContent) activeContent.classList.add('active');
@@ -383,11 +394,16 @@
             if (targetSubBtn) switchTab(tabId, targetSubBtn);
         }
 
+        // Tích hợp playClickSound() khi mở tài liệu
         function openPdfModal(modalId) {
+            playClickSound(); 
             const modal = document.getElementById(modalId);
             if (modal) { modal.classList.add('show-modal'); document.body.style.overflow = 'hidden'; }
         }
+
+        // Tích hợp playClickSound() khi đóng tài liệu
         function closePdfModal(modalId) {
+            playClickSound(); 
             const modal = document.getElementById(modalId);
             if (modal) { modal.classList.remove('show-modal'); document.body.style.overflow = 'auto'; }
         }
