@@ -507,16 +507,22 @@ body::before {
 
     .header-nav-top { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; width: 100% !important; gap: 15px !important;}
     .btn-back { position: relative !important; font-size: 0.75rem !important; padding-top: 5px !important; padding-bottom: 5px !important; padding-left: 10px !important; padding-right: 10px !important; display: inline-flex !important; }
-    .header-main-title { font-size: 1.1rem !important; letter-spacing: 0.5px !important; gap: 6px; }
+    
+    /* ÉP TẤT CẢ CÁC BỘ CHỌN CHỨA TIÊU ĐỀ DASHBOARD PHẢI THU NHỎ TRÊN DI ĐỘNG */
+    .top-header .header-main-title,
+    .header-nav-top h1.header-main-title,
+    .header-main-title { 
+        font-size: 1.1rem !important; /* Độ mạnh vượt trội để đè hoàn toàn mức 1.8rem bên style.css */
+        letter-spacing: 0.5px !important; 
+        white-space: nowrap !important;
+        margin: 0 !important;
+    }
+    
     .header-logo {
         width: 20px !important;
         height: 20px !important;
     }
-    .header-main-title {
-        font-size: 1.1rem !important;
-        letter-spacing: 0.5px !important;
-        white-space: nowrap !important;
-    }
+
     .tab-content {
         padding-top: 25px !important;
         padding-bottom: 25px !important;
